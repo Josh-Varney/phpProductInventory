@@ -21,6 +21,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <head>
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>
         <?= $cakeDescription ?>:
         <?= $this->fetch('title') ?>
