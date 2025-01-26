@@ -21,7 +21,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <head>
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://cdn.tailwindcss.com"></script>
     <title>
         <?= $cakeDescription ?>:
         <?= $this->fetch('title') ?>
@@ -50,6 +50,12 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <?= $this->fetch('content') ?>
         </div>
     </main>
+    <!-- Render Flash Messages Globally -->
+    <?php if ($this->Flash->render()): ?>
+        <div class="fixed top-0 left-0 w-full bg-red-600 text-white text-5xl p-4 px-4">
+            <?= $this->Flash->render()?>
+        </div>
+    <?php endif; ?>
     <footer>
     </footer>
 </body>

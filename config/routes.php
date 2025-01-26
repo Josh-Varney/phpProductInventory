@@ -93,4 +93,6 @@ return function (RouteBuilder $routes): void {
      * });
      * ```
      */
+
+    $routes->connect('/products/low-stock', ['controller' => 'Products', 'action' => 'lowStock']);
 };

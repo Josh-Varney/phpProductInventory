@@ -4,11 +4,14 @@ CREATE TABLE products (
     quantity INT NOT NULL,
     price DECIMAL(10, 2) NOT NULL,
     status ENUM('In Stock', 'Low Stock', 'Out of Stock') NOT NULL,
+    last_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON
+    deleted BOOLEAN NOT NULL DEFAULT FALSE;
     ADD CONSTRAINT unique_name UNIQUE (name);
     ADD CONSTRAINT check_quantity CHECK (quantity >= 0 AND quantity <= 1000);
     ADD CONSTRAINT check_price CHECK (price > 0 AND price <= 10000);
     ADD CONSTRAINT check_price_quantity CHECK ((price > 100 AND quantity >= 10) OR price <= 100);
     ADD CONSTRAINT check_promo_price CHECK ( (name LIKE '%promo%' AND price < 50) OR name NOT LIKE '%promo%' );
+    
 );
 
 -- Products with "no promo" restriction 
