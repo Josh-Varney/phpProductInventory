@@ -72,8 +72,7 @@ Product list page with:
 Columns: name, quantity, price, status, last updated.
 Search box for partial name matches.
 Pagination
-A form to add/edit products.
-A confirmation modal before deleting a product. 
+A form to edit products.
 Additional Requirements:
 Calculate the status dynamically based on quantity:
 in stock: Quantity > 10.

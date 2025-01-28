@@ -1,5 +1,6 @@
 <?php
 declare(strict_types=1);
+require_once __DIR__ . '/../vendor/autoload.php';
 
 /**
  * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
@@ -19,6 +20,7 @@ declare(strict_types=1);
  * Configure paths required to find CakePHP + general filepath constants
  */
 require __DIR__ . DIRECTORY_SEPARATOR . 'paths.php';
+
 
 /*
  * Bootstrap CakePHP.
@@ -95,6 +97,16 @@ try {
 if (file_exists(CONFIG . 'app_local.php')) {
     Configure::load('app_local', 'default');
 }
+
+// Enable logging to console for debugging
+if (Configure::read('debug')) {
+    Log::setConfig('stderr', [
+        'className' => 'Console',
+        'path' => 'php://stderr',
+        'levels' => ['error', 'warning', 'info', 'debug'],
+    ]);
+}
+
 
 /*
  * When debug = true the metadata cache should only last
